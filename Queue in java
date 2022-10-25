@@ -1,0 +1,67 @@
+package studydsa;
+
+import java.util.Scanner;
+
+class  QueueFunction{
+    int[] queue = new int[5];
+    int front = 0;
+    int rear = -1;
+    int n = queue.length;
+    Scanner sc = new Scanner(System.in);
+
+    void enqueue(){
+        int r = rear;
+        if (++r>=n){
+            System.out.println("Queue is Full!!");
+        }
+        else{
+            rear++;
+            System.out.print("Enter the value : ");
+            queue[rear] = sc.nextInt();
+        }
+    }
+    void dequeue(){
+        if (front>rear){
+            System.out.println("Queue is Empty!!");
+        }
+        else{
+            front++;
+            System.out.println("Value Deleted!!");
+        }
+    }
+    void display(){
+        for (int i = front; i <= rear; i++) {
+            System.out.print(queue[i]+" ");
+        }
+        System.out.println("");
+    }
+}
+
+public class Queue {
+    public static void main(String[] Queue) {
+        QueueFunction qf = new QueueFunction();
+        Scanner sc = new Scanner(System.in);
+        int input;
+        int input2;
+
+        do {
+            System.out.println("This is Stack Menu Driven Programme");
+            System.out.println("1. Insert Data");
+            System.out.println("2. Delete Data");
+            System.out.println("3. Display Data");
+            System.out.println("Enter The Task Number");
+            input = sc.nextInt();
+
+            switch (input){
+                case 1-> qf.enqueue();
+                case 2-> qf.dequeue();
+                case 3-> qf.display();
+                default -> System.out.println("Enter The Invalid Task!!");
+            }
+            System.out.println("Press 0 To Go Back To Menu Or Press Any Other KeyWord To EXIT");
+            input2 = sc.nextInt();
+
+        }while(input2==0);
+        
+    }
+}
